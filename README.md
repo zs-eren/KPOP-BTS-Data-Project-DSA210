@@ -1,5 +1,20 @@
 # KPOP-BTS-Data-Project-DSA210
 
+
+## Table of Contents
+
+1. [INTRO](#intro)
+2. [Objectives](#objectives)
+3. [Motivation](#motivation)
+4. [Data Collection](#data-collection)
+   - [Music Video & Performance Data](#music-video--performance-data-primary-dataset)
+   - [Google Trends Popularity Data](#google-trends-popularity-data-enrichment-dataset)
+   - [Data Cleaning & Integration](#data-cleaning--integration)
+   - [Final Dataset Structure](#final-dataset-structure)
+5. [Hypothesis Testing](#hypothesis-testing)
+6. [Conclusion](#conclusion)
+
+
 # INTRO
 
 K-pop today is far more than a music genre; it has grown into an enormous digital culture that reaches millions across the world. Within this global movement, BTS stands out as one of the strongest driving forces. Because of this trying to understand BTS’s popularity is essentially the same as trying to understand how modern digital culture works and how big online engagement is formed.
@@ -7,6 +22,15 @@ K-pop today is far more than a music genre; it has grown into an enormous digita
 As BTS grows globally, both the performance of their music videos and their online engagement increased significantly over time. Each music video (MV) release when considered together with factors such as comeback timing, online fan reactions, and global search interest, creates a measurable cycle of interest. This cycle is shaped by viewer growth rates, like rates, comment density, trending trends, and release strategies. All these factors combine to form a complex yet fascinating success model that can be analyzed with data science to understand how BTS's global popularity was created and how it has changed over time.
 
 This project aims to examine BTS's global engagement model from a data science perspective. By analyzing a wealth of data, from music video performances and trend waves to the rate of like growth and comment density, I aim to uncover the key drivers of popularity with using both visualizations, statistical methods, and machine learning models, I want to show by the numbers why BTS has such a strong global impact
+
+# Objectives
+
+- Identify the key factors that influence the global performance of BTS music videos.
+- Analyze how Google Trends popularity aligns with MV engagement patterns.
+- Examine the impact of comeback timing on viewer growth and fan interactions.
+- Explore the relationship between early engagement metrics (first 24 hours) and long-term MV success.
+- Understand how member-specific popularity affects overall MV engagement.
+- Apply data science and machine learning techniques to predict MV performance.
 
 # Motivation
 BTS's global success has always been fascinating to me. Im intrigued by how a group can change the world so much not just through their music but also through their impact on digital platforms. Thats the reason why I want to understand the numerical dynamics behind BTS's popularity. I want to use data science to examine which music videos get the most attention and why, how trends shift with comebacks, and how fan interaction influences popularity. I'm motivated both by analyzing a topic I love and by applying the techniques I have learned to a real life example.
@@ -49,8 +73,6 @@ For each keyword, I will download the monthly worldwide popularity score as a CS
 Time (monthly resolution)
 
 Global trend score (0–100 scale)
-
-Regional popularity distribution (optional)
 
 Trend data will be aligned with music video release dates to observe interest spikes around comeback periods.
 
