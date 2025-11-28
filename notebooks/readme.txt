@@ -1,1 +1,1 @@
-This folder will contain Jupyter notebooks.
+This folder will contain album sales data and google BTS search data
