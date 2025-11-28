@@ -23,104 +23,147 @@ As BTS grows globally, both the performance of their music videos and their onli
 
 This project aims to examine BTS's global engagement model from a data science perspective. By analyzing a wealth of data, from music video performances and trend waves to the rate of like growth and comment density, I aim to uncover the key drivers of popularity with using both visualizations, statistical methods, and machine learning models, I want to show by the numbers why BTS has such a strong global impact
 
-# Objectives
+## Objectives
 
-- Identify the key factors that influence the global performance of BTS music videos.
-- Analyze how Google Trends popularity aligns with MV engagement patterns.
-- Examine the impact of comeback timing on viewer growth and fan interactions.
-- Explore the relationship between early engagement metrics (first 24 hours) and long-term MV success.
-- Understand how member-specific popularity affects overall MV engagement.
-- Apply data science and machine learning techniques to predict MV performance.
+With the updated scope and available data, the main objectives of this project are:
 
-# Motivation
-BTS's global success has always been fascinating to me. Im intrigued by how a group can change the world so much not just through their music but also through their impact on digital platforms. Thats the reason why I want to understand the numerical dynamics behind BTS's popularity. I want to use data science to examine which music videos get the most attention and why, how trends shift with comebacks, and how fan interaction influences popularity. I'm motivated both by analyzing a topic I love and by applying the techniques I have learned to a real life example.
+- Identify how BTS’s global search popularity evolves over time.
+- Analyze the relationship between BTS’s album sales and global search interest.
+- Examine whether years with higher search interest correspond to higher album sales.
+- Explore how member-specific search interest (e.g., Jungkook, Jimin, V, RM, Suga, J-Hope, Jin) changes over time and how it overlaps with group activity periods.
+- Build simple data-driven models (e.g., correlation analysis or regression) to see whether search interest can help explain or predict album sales.
 
-# Data Collecting
+## Motivation
 
-To analyze BTS’s global popularity and performance dynamics, I will collect data from publicly availableonline sources. My data collection process will include two main components: performance datas and global trend datas. All data will be gathered using verified platforms and stored in organized CSV files within the project repository.
-1. ## Music Video & Performance Data (Primary Dataset)
-I will gather detailed BTS music video performance metrics from public datasets on platforms such as Kaggle and YouTube-based datasets. These datasets typically include:
-Music video titles
-Release dates
-Total and daily view counts
-Like / dislike ratios
-Comment counts
-Video duration
-Engagement growth over time
-These files will be downloaded in CSV format and cleaned for consistency (unified date formats, numeric conversions, and removing missing or duplicated entries).
+BTS's global success has always been fascinating to me. I am intrigued by how a group can influence the world not only through their music, but also through their digital presence and the constant attention they receive online. That is why I want to understand the numerical dynamics behind BTS's popularity using real data.
 
-2. ## Google Trends Popularity Data (Enrichment Dataset)
-To capture global attention patterns, I will export official Google Trends data for keywords such as:
+In this project, I focus on two main aspects:
+1. How much people search for BTS and each member globally over time.
+2. How BTS albums perform in terms of estimated sales.
 
-“BTS”
+By combining these two dimensions, I aim to see whether changes in global interest (measured through Google search trends) are reflected in album sales performance. I am motivated both by analyzing a topic I love and by applying the data analysis techniques I have learned to a real-life example.
 
-“Jungkook”
+## Data Collecting
 
-“Jimin”
+To analyze BTS’s global popularity and performance, I use two main types of data:
 
-“V”
+1. **Album sales data** – to represent commercial performance.
+2. **Google search trends data** – to represent global interest and attention for BTS and the members.
 
-“RM”
+All data is collected from publicly available online sources and stored as CSV files within the project repository.
 
-“Suga”
+### Album Sales Data (Primary Dataset)
 
-“J-Hope”
+The primary performance dataset consists of estimated BTS album sales. For each album, I collect:
 
-“Jin”
+- Album title  
+- Release year  
+- Estimated total sales  
 
-For each keyword, I will download the monthly worldwide popularity score as a CSV file. These files contain:
+These values are taken from publicly available album sales sources (such as chart and sales aggregation websites). After collecting the raw values, they are entered into a structured CSV file and cleaned for consistency (e.g., standardizing album names and ensuring numeric sales values).
 
-Time (monthly resolution)
+This file is stored as:
 
-Global trend score (0–100 scale)
+- `bts_album_sales.csv` — BTS album titles, release years, and estimated sales.
 
-Trend data will be aligned with music video release dates to observe interest spikes around comeback periods.
+### Google Trends Popularity Data (Member & Group Popularity)
 
-3. ## Data Cleaning & Integration
+To capture global attention patterns over time, I use Google Trends data. I export official Google Trends statistics for:
 
-After collecting all datasets, I will:
+- “BTS”
+- “Jungkook”
+- “Jimin”
+- “V”
+- “RM”
+- “Suga”
+- “J-Hope”
+- “Jin”
 
-Standardize date formats to enable time-based merging
+For each keyword, I download the worldwide search interest over time as CSV files. These files typically contain:
 
-Normalize column names across files
+- Time (weekly or monthly resolution)
+- Search interest score (0–100 scale)
 
-Convert view counts, likes, and comments into numeric format
+These files are stored as:
 
-Create new derived features (growth rate, engagement ratio, trend-at-release)
+- `bts_trends.csv` — search interest over time for “BTS”
+- `bts_member_trends.csv` (or separate files per member) — search interest over time for individual members
 
-Merge Google Trends data with MV performance data through shared time indices
+### Data Cleaning & Integration
 
-4. ## Final Dataset Structure
-After preprocessing, the dataset will be organized into files such as:
+After collecting all datasets, I apply the following steps:
 
-bts_mvs.csv — Music video performance data
+- **Standardize date formats** in all trends files to ensure they can be grouped or merged by year.
+- **Create a “Year” variable** for both album sales and trends data to allow yearly aggregation.
+- **Convert sales values** into numeric format (e.g., removing commas and converting strings to integers).
+- **Aggregate Google Trends data** by year, for example by computing the average annual search interest for:
+  - BTS as a group  
+  - Each individual member  
 
-bts_daily_views.csv — Daily view growth (if available)
+Based on this, I prepare an integrated dataset where:
 
-bts_trends.csv — Global trend popularity scores
+- Each album has:
+  - Release year  
+  - Estimated sales  
+  - The corresponding yearly BTS trend score (and, optionally, summary statistics of member trend scores for that year)
 
-merged_bts_data.csv — Final combined dataset for analysis
-# Hypothesis testing
+### Final Dataset Structure
 
-1) ## Trend Popularity → MV Performance
-H₀: There is no significant relationship between Google Trends popularity and the total view count of BTS music videos.
-H₁: Higher Google Trends popularity is associated with significantly higher total view counts of BTS music videos.
+After preprocessing, the main datasets used in the project are:
 
-2) ## Early Performance → Long-Term Success
-H₀: Early engagement metrics (views, likes in the first 24 hours) do not significantly influence the long-term performance of a music video.
-H₁: Music videos with stronger early engagement achieve significantly higher long-term total views.
+- `bts_album_sales.csv` — Album title, release year, estimated sales  
+- `bts_trends.csv` — Global search interest over time for “BTS”  
+- `bts_member_trends.csv` (or multiple files) — Global search interest over time for individual members  
+- `merged_bts_trends_sales.csv` — A combined dataset that links album sales with yearly search interest scores
 
-3) ## Comeback Timing Effect
-H₀: There is no difference in engagement between videos released during comeback periods and videos released outside comeback periods.
-H₁: BTS music videos released during comeback periods show significantly higher engagement levels.
+This merged dataset will be used for exploratory data analysis, visualizations, and hypothesis testing.
 
-4) ## Member Popularity → Engagement Metrics
-H₀: Member-specific search interest (e.g., Jungkook, Jimin, V, RM, Suga, J-Hope, Jin) is not related to MV engagement metrics such as like ratio or comment count.
-H₁: Higher member search interest is associated with higher engagement metrics in BTS music videos.
+## Hypothesis Testing
 
-5) ## Video Characteristics → Virality
-H₀: Video characteristics such as release year, video length, and category have no significant effect on whether a BTS music video becomes viral.
-H₁: Specific video characteristics significantly influence the likelihood of a BTS music video becoming viral.
+Given the updated data scope, the hypothesis tests are defined as follows:
+
+### 1) Global Search Interest → Album Sales
+
+**H₀:** There is no significant relationship between BTS’s global search interest (Google Trends score) and album sales.  
+**H₁:** Higher BTS global search interest is associated with significantly higher album sales.
+
+This will be tested using correlation analysis and simple regression between yearly average BTS trend scores and album sales.
+
+---
+
+### 2) Early vs. Later Eras of BTS
+
+**H₀:** There is no significant difference in average album sales between earlier BTS releases and more recent BTS releases.  
+**H₁:** More recent BTS releases have significantly different (higher or lower) average album sales compared to earlier releases.
+
+Albums can be split into two or more time periods (for example, pre-2017 vs. 2017 and later), and their sales can be compared using appropriate statistical tests.
+
+---
+
+### 3) Member Popularity Over Time
+
+**H₀:** Member-specific search interest (e.g., Jungkook, Jimin, V, RM, Suga, J-Hope, Jin) does not show any systematic change over time.  
+**H₁:** There are significant changes or trends in member-specific search interest over time (e.g., certain members becoming more searched in specific periods).
+
+This can be explored using trend analysis and visualizations of each member’s Google Trends time series.
+
+---
+
+### 4) Group Popularity vs. Member Popularity
+
+**H₀:** BTS group search interest is not associated with member-specific search interest.  
+**H₁:** Higher BTS group search interest coincides with higher search interest for individual members.
+
+This can be tested by computing correlations between the “BTS” trend series and each member’s trend series.
+
+---
+
+### 5) Predicting Album Sales from Popularity Indicators
+
+**H₀:** BTS album sales cannot be explained by a model using global search interest as an input.  
+**H₁:** A simple predictive model using BTS global search interest (and possibly time variables) explains a significant portion of the variation in album sales.
+
+A basic regression or similar model can be built using variables such as release year and trend scores as predictors, and album sales as the target.
 
 # Conclusion
 By the end of this project, I hope to answer:
