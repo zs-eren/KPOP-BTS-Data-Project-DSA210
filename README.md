@@ -22,7 +22,7 @@ Today, K-pop is more than just music, having transformed into a huge digital cul
 
 As the popularity of BTS expands worldwide, there is a corresponding increase in the performance of their music videos and their online engagement. Each music video release, when combined with other factors like return dates, fan engagement, and worldwide search interests, presents a data-gradable cycle of engagement. Such interaction cycles are determined by viewer engagement rates, including like rates, comment density, trending, and engagement rates. All these work in conjunction with each other to produce a complex yet interesting success formula that, when analyzed with data science, could explain the process of BTS's success at an international level and how it keeps evolving with time.
 
-This project aims to examine BTS's global engagement model from a data science perspective. By analyzing a wealth of data, from music video performances and trend waves to the rate of like growth and comment density, I aim to uncover the key drivers of popularity with using both visualizations, statistical methods, and machine learning models, I want to show by the numbers why BTS has such a strong global impact
+This project aims to examine BTS's global engagement model from a data science perspective. By analyzing a wealth of data, from music video performances and trend waves to the rate of like growth and comment density, I aim to uncover the key drivers of popularity by using both visualizations, statistical methods, and machine learning models, I aim to show by the numbers why BTS has such a strong global impact
 
 ## Objectives
 
@@ -169,7 +169,7 @@ A basic regression or similar model can be built using variables such as release
 For determining if global popularity metrics can account for album sales of BTS, a regression machine-learning algorithm was used.
 A Linear Regression model was trained with the yearly Google Trends scores of BTS and the search interests of the members as input variables and album sales as the output. The dataset was divided into a training set and a test set.
 The Linear Regression model had an R² value of 0.53, which meant that over half the data on album sales is explained by global search interest and member popularity. The mean absolute error is approximately 689,000 units. This is quite a good estimate considering the magnitude of BTS album sales.
-These findings suggest that search interest is an important factor in explaining commercial performance, although there are additional factors that are also relevant.
+These findings suggest that search interest is an important factor in explaining commercial performance, although there are additional factors that are also relevant. Due to the limited dataset size, the model is intended for explanatory purposes rather than precise prediction
 
 # Conclusion
 This project investigates the relationship between the global fame of BTS and the album sales by merging Google Trends search data with album sales data. Using exploratory data analysis, hypothesis testing, and basic machine learning models, the project tries to understand if online interest helps explain or predict commercial success.
