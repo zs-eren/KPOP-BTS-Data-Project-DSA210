@@ -18,31 +18,32 @@
 
 # INTRO
 
-K-pop today is far more than a music genre; it has grown into an enormous digital culture that reaches millions across the world. Within this global movement, BTS stands out as one of the strongest driving forces. Because of this trying to understand BTS’s popularity is essentially the same as trying to understand how modern digital culture works and how big online engagement is formed.
+Today, K-pop is more than just music, having transformed into a huge digital culture that reaches millions worldwide. Within this global culture, BTS is recognized as one of the greatest motivational forces. It is due to this reason that in an attempt to comprehend the popularity that BTS has gained, essentially, the explanation is the same as understanding the functionality of the huge digital culture that has been generated.
 
-As BTS grows globally, both the performance of their music videos and their online engagement increased significantly over time. Each music video (MV) release when considered together with factors such as comeback timing, online fan reactions, and global search interest, creates a measurable cycle of interest. This cycle is shaped by viewer growth rates, like rates, comment density, trending trends, and release strategies. All these factors combine to form a complex yet fascinating success model that can be analyzed with data science to understand how BTS's global popularity was created and how it has changed over time.
+As the popularity of BTS expands worldwide, there is a corresponding increase in the performance of their music videos and their online engagement. Each music video release, when combined with other factors like return dates, fan engagement, and worldwide search interests, presents a data-gradable cycle of engagement. Such interaction cycles are determined by viewer engagement rates, including like rates, comment density, trending, and engagement rates. All these work in conjunction with each other to produce a complex yet interesting success formula that, when analyzed with data science, could explain the process of BTS's success at an international level and how it keeps evolving with time.
 
 This project aims to examine BTS's global engagement model from a data science perspective. By analyzing a wealth of data, from music video performances and trend waves to the rate of like growth and comment density, I aim to uncover the key drivers of popularity with using both visualizations, statistical methods, and machine learning models, I want to show by the numbers why BTS has such a strong global impact
 
 ## Objectives
 
-With the updated scope and available data, the main objectives of this project are:
+With this new scope in mind and this new set of available data, the overall objectives of this project include:
 
-- Identify how BTS’s global search popularity evolves over time.
-- Analyze the relationship between BTS’s album sales and global search interest.
-- Examine whether years with higher search interest correspond to higher album sales.
-- Explore how member-specific search interest (e.g., Jungkook, Jimin, V, RM, Suga, J-Hope, Jin) changes over time and how it overlaps with group activity periods.
-- Build simple data-driven models (e.g., correlation analysis or regression) to see whether search interest can help explain or predict album sales.
+- Determine the popularity of BTS's global search over time.
+- Explore the correlation between BTS’s album sales and international search interest.
+- Check if the years with greater search interest result in greater album sales.
+- Discuss how particular search interests, for instance, Jungkook, Jimin, V, RM, Suga, J-Hope, and Jin, differ in search volume throughout a certain period of time.
+- Create simple models based on data (for example, a study of correlation or regression analysis) to examine if search interest can aid in album sales predictions.
 
 ## Motivation
 
-BTS's global success has always been fascinating to me. I am intrigued by how a group can influence the world not only through their music, but also through their digital presence and the constant attention they receive online. That is why I want to understand the numerical dynamics behind BTS's popularity using real data.
+The global successfulness of the group, I must admit, has always been quite interesting to learn and know. The power of influence exerted by the band not only by their musical performances but by their online presence and engagement that receives constant attention and monitoring on the internet is what has actually triggered me to learn the mathematical calculations of their popularity using actual numbers.
+In this project, I will concentrate on two issues:
 
-In this project, I focus on two main aspects:
-1. How much people search for BTS and each member globally over time.
-2. How BTS albums perform in terms of estimated sales.
+1. How many searches there are for "BTS" and each individual member worldwide over a period of time.
+2. Sales performance of BTS albums based on estimated sales.
 
-By combining these two dimensions, I aim to see whether changes in global interest (measured through Google search trends) are reflected in album sales performance. I am motivated both by analyzing a topic I love and by applying the data analysis techniques I have learned to a real-life example.
+In other words, I would like to see if interest levels in the world (measured in the number of searches on Google) are connected to music sales (measured in the number of sales) through these two factors I have chosen. A final reason I am interested in this topic is that I love music, and I am interested in analyzing something I am passionate about.
+     Note that I could measure music sales in a number of different ways; for example, I could also measure music
 
 ## Data Collecting
 
@@ -61,11 +62,9 @@ The primary performance dataset consists of estimated BTS album sales. For each 
 - Release year  
 - Estimated total sales  
 
-These values are taken from publicly available album sales sources (such as chart and sales aggregation websites). After collecting the raw values, they are entered into a structured CSV file and cleaned for consistency (e.g., standardizing album names and ensuring numeric sales values).
+These parameters are gleaned from publicly accessible sources for album sales data (e.g., data aggregators that provide song hashtags). Once gathered from raw data sources, the data is stored within an organized CSV format for standardization to remove inconsistencies within the data set (e.g., to standardize song title names to remove variations).
 
-This file is stored as:
-
-- `bts_album_sales.csv` — BTS album titles, release years, and estimated sales.
+This file is saved as: - `bts_album_sales.csv`: This contains the title, year, and estimated sales
 
 ### Google Trends Popularity Data (Member & Group Popularity)
 
@@ -121,23 +120,23 @@ This merged dataset will be used for exploratory data analysis, visualizations, 
 
 ## Hypothesis Testing
 
-Given the updated data scope, the hypothesis tests are defined as follows:
+Based on the new scope presented, the hypothesis tests are as follows:
 
-### 1) Global Search Interest → Album Sales
+### 1) Global Search Interest -> Album Sales
 
-**H₀:** There is no significant relationship between BTS’s global search interest (Google Trends score) and album sales.  
-**H₁:** Higher BTS global search interest is associated with significantly higher album sales.
+**H₀:** There is no significant relationship between BTS’s search interest from a global perspective (Google Trends value) and their album sales.
 
-This will be tested using correlation analysis and simple regression between yearly average BTS trend scores and album sales.
+**H₁**: The higher the BTS global search interest, the more albums are sold.
 
+This hypothesis will be tested through correlation and regression analysis between the average BTS trend scores per year and album sales.
 ---
 
 ### 2) Early vs. Later Eras of BTS
 
-**H₀:** There is no significant difference in average album sales between earlier BTS releases and more recent BTS releases.  
-**H₁:** More recent BTS releases have significantly different (higher or lower) average album sales compared to earlier releases.
+**H₀:** There is no significant difference in average album sales when comparing earlier BTS albums to more contemporary BTS albums.
+**H₁:** The more recent BTS releases have a significantly different average sale of albums compared to the earlier ones.
 
-Albums can be split into two or more time periods (for example, pre-2017 vs. 2017 and later), and their sales can be compared using appropriate statistical tests.
+Albums can be classified based on time, such as before and after the year 2017, and the sale of the albums can be compared using the correct statistical test.
 
 ---
 
@@ -167,22 +166,23 @@ This can be tested by computing correlations between the “BTS” trend series 
 A basic regression or similar model can be built using variables such as release year and trend scores as predictors, and album sales as the target.
 
 ### 6) Machine Learning Methods
-To examine whether global popularity indicators can explain BTS album sales, a regression-based machine learning approach was applied.
-A Linear Regression model was trained using yearly Google Trends scores for BTS and member-specific search interest as input features, with album sales as the target variable. The dataset was split into training and test sets.
-The Linear Regression model achieved an R² score of 0.53, indicating that more than half of the variation in album sales can be explained by global search interest and member popularity. The mean absolute error (MAE) was approximately 689,000 units, which is reasonable given the scale of BTS album sales.
-These results suggest that online search interest plays a meaningful role in explaining commercial performance, although additional factors beyond search behavior are also influential.
+For determining if global popularity metrics can account for album sales of BTS, a regression machine-learning algorithm was used.
+A Linear Regression model was trained with the yearly Google Trends scores of BTS and the search interests of the members as input variables and album sales as the output. The dataset was divided into a training set and a test set.
+The Linear Regression model had an R² value of 0.53, which meant that over half the data on album sales is explained by global search interest and member popularity. The mean absolute error is approximately 689,000 units. This is quite a good estimate considering the magnitude of BTS album sales.
+These findings suggest that search interest is an important factor in explaining commercial performance, although there are additional factors that are also relevant.
 
 # Conclusion
-This project explored the relationship between BTS’s global popularity and their album sales by combining Google Trends search data with album sales data. Using exploratory data analysis, hypothesis testing, and basic machine learning models, the project aimed to understand whether online interest can help explain or predict commercial success.
-The analysis showed that global search interest for BTS is moderately correlated with album sales, suggesting that years with higher public attention tend to coincide with stronger commercial performance. This supports the idea that online popularity is an important indicator of market success, although it is clearly not the only factor influencing album sales.
-Member-specific Google search trends also revealed distinct patterns over time, with certain members consistently receiving higher search interest. These trends generally moved in parallel with overall BTS popularity, indicating that group-level attention and individual member interest are closely connected.
-A simple machine learning regression model was applied to predict album sales using popularity-related features. The model achieved a moderate R² score, indicating that search trends explain a meaningful portion of sales variation, but also highlighting that album performance depends on additional factors such as marketing strategies, release timing, and industry conditions that were not included in the dataset.
+This project investigates the relationship between the global fame of BTS and the album sales by merging Google Trends search data with album sales data. Using exploratory data analysis, hypothesis testing, and basic machine learning models, the project tries to understand if online interest helps explain or predict commercial success.
+Analysis actually shows that global search interest for BTS is moderately correlated with album sales, hinting that years with high public attention are more or less likely to coincide with stronger commercial performance. That might well underpin the proposal that online popularity is a major indicator of market success, though it's clearly not the only driving force when it comes to album sales.
+Member-specific Google search trends also showed distinct patterns over time, where some members have persisted at higher levels of search interest. These generally moved in parallel with overall BTS popularity, which suggests that group-level attention and individual member interest are highly linked.
+A basic regression in machine learning was executed to predict album sales using features that related to popularity.
+ The model achieved a moderate R² score, indicating that search trends explain a meaningful portion of sales variation, but also highlighting that album performance depends on additional factors such as marketing strategies, release timing, and industry conditions that were not included in the dataset.
 
 # Limitations and Future Work
-This study relies on estimated album sales and aggregated Google Trends data, which may not perfectly represent real-time consumer behavior. Additionally, the dataset is relatively small, limiting the complexity and accuracy of predictive models.
-Future work could include:
-Incorporating music video performance metrics (views, likes, comments)
-Using streaming platform data or regional sales figures
-Applying more advanced machine learning models
-Performing time-series analysis around album release periods
-Overall, this project demonstrates how combining multiple public data sources can provide meaningful insights into digital popularity and commercial performance, while also highlighting the limitations of data-driven prediction in real-world cultural phenomena.
+This paper uses estimated album sales and aggregate Google Trends, which may not accurately reflect real-world customer activities. It is noted that the sample size is small, which makes it difficult to use complex models for predictions.
+Further studies might involve:
+To bring music video performance data into the equation
+Data from streaming services or sales data in regions
+Using More Advanced Models of Machine Learning
+Engaging in time series analysis during the time of album releases
+In conclusion, this project illustrates how an assortment of publicly available data sets can help reveal interesting information about digital popularity and performance data, as well as the fallibility of prediction through data analysis for real-world cultural occurrences.
