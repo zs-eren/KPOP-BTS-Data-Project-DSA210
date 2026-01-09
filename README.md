@@ -12,8 +12,9 @@
    - [Data Cleaning & Integration](#data-cleaning--integration)
    - [Final Dataset Structure](#final-dataset-structure)
 5. [Hypothesis Testing](#hypothesis-testing)
-6. [Conclusion](#conclusion)
-
+6. [Machine Learning Methods](#machine-learning-methods)
+7. [Conclusion](#conclusion)
+8. [Limitations and Future Work](#limitations-and-future-work)
 
 # INTRO
 
@@ -165,12 +166,23 @@ This can be tested by computing correlations between the “BTS” trend series 
 
 A basic regression or similar model can be built using variables such as release year and trend scores as predictors, and album sales as the target.
 
+### 6) Machine Learning Methods
+To examine whether global popularity indicators can explain BTS album sales, a regression-based machine learning approach was applied.
+A Linear Regression model was trained using yearly Google Trends scores for BTS and member-specific search interest as input features, with album sales as the target variable. The dataset was split into training and test sets.
+The Linear Regression model achieved an R² score of 0.53, indicating that more than half of the variation in album sales can be explained by global search interest and member popularity. The mean absolute error (MAE) was approximately 689,000 units, which is reasonable given the scale of BTS album sales.
+These results suggest that online search interest plays a meaningful role in explaining commercial performance, although additional factors beyond search behavior are also influential.
+
 # Conclusion
-By the end of this project, I hope to answer:
-Do global search trends correlate with the performance of BTS music videos?
-Are certain comeback periods or release strategies associated with higher engagement?
-Do music videos with faster early growth (views, likes, comments) become more successful in the long term?
-How do fan behavior and online interest fluctuate before and after major BTS releases?
-Can we identify the key features that most strongly predict whether a BTS MV will go viral?
-Is it possible to build a machine learning model that predicts MV performance based on early metrics and trend activity?
-Through this project, I aim to better understand the digital dynamics behind BTS’s global popularity. By combining statistical analysis, data visualization, and machine learning
+This project explored the relationship between BTS’s global popularity and their album sales by combining Google Trends search data with album sales data. Using exploratory data analysis, hypothesis testing, and basic machine learning models, the project aimed to understand whether online interest can help explain or predict commercial success.
+The analysis showed that global search interest for BTS is moderately correlated with album sales, suggesting that years with higher public attention tend to coincide with stronger commercial performance. This supports the idea that online popularity is an important indicator of market success, although it is clearly not the only factor influencing album sales.
+Member-specific Google search trends also revealed distinct patterns over time, with certain members consistently receiving higher search interest. These trends generally moved in parallel with overall BTS popularity, indicating that group-level attention and individual member interest are closely connected.
+A simple machine learning regression model was applied to predict album sales using popularity-related features. The model achieved a moderate R² score, indicating that search trends explain a meaningful portion of sales variation, but also highlighting that album performance depends on additional factors such as marketing strategies, release timing, and industry conditions that were not included in the dataset.
+
+# Limitations and Future Work
+This study relies on estimated album sales and aggregated Google Trends data, which may not perfectly represent real-time consumer behavior. Additionally, the dataset is relatively small, limiting the complexity and accuracy of predictive models.
+Future work could include:
+Incorporating music video performance metrics (views, likes, comments)
+Using streaming platform data or regional sales figures
+Applying more advanced machine learning models
+Performing time-series analysis around album release periods
+Overall, this project demonstrates how combining multiple public data sources can provide meaningful insights into digital popularity and commercial performance, while also highlighting the limitations of data-driven prediction in real-world cultural phenomena.
